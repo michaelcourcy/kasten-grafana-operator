@@ -1,0 +1,17 @@
+kind: GrafanaDatasource
+apiVersion: grafana.integreatly.org/v1beta1
+metadata:
+  name: kasten
+  namespace: monitoring
+spec:
+  datasource:
+    access: proxy
+    isDefault: true
+    jsonData:
+      timeInterval: 1m      
+    name: Kasten
+    type: prometheus
+    url: 'http://prometheus-server.kasten-io/k10/prometheus/'
+  instanceSelector:
+    matchLabels:
+      dashboards: "kasten"
